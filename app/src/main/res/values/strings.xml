@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Chics Connect</string>
+    <string name="title_home">Map</string>
+    <string name="title_dashboard">Event</string>
+    <string name="title_notifications">Users</string>
+    <string name="title_world">World</string>
+
+    <string name="message">Message</string>
+    <string name="view_profile">View Profile</string>
+
+    <string name="your_bio">your bio</string>
+    <string name="phone_num">phone number</string>
+    <string name="home_city">home city</string>
+    <string name="home_state">home state</string>
+    <string name="home_country">home country</string>
+    <string name="finishSetup">Finish Setup</string>
+
+    <string name="start">start</string>
+
+    <string name="user_event">Your Events</string>
+
+    <string name="join_event">Join</string>
+    <string name="chat_event">Chat Group</string>
+    <string name="title_activity_detail_event">DetailEventActivity</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="event_fees">Price</string>
+    <string name="event_about">About</string>
+    <string name="event_place">Place</string>
+    <string name="event_time">Time</string>
+    <string name="large_text">Layout container for a view hierarchy that can be scrolled by the user, allowing it to be larger than the physical display. A ScrollView is a FrameLayout, meaning you should place one child in it containing the entire contents to scroll; this child may itself be a layout manager with a complex hierarchy of objects. A child that is often used is a LinearLayout in a vertical orientation, presenting a vertical array of top-level items that the user can scroll through.</string>
+</resources>

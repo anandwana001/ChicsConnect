@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "911359200170",
+    "firebase_url": "https://chicsconnect-4a561.firebaseio.com",
+    "project_id": "chicsconnect-4a561",
+    "storage_bucket": "chicsconnect-4a561.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:911359200170:android:76232ce1f0d247f1",
+        "android_client_info": {
+          "package_name": "and.com.cswithandroid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "911359200170-tcbm621pls13q0c68toj99gt8mt9rp5g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "and.com.cswithandroid",
+            "certificate_hash": "ccd249569b01c94f47f91792c603521d22365320"
+          }
+        },
+        {
+          "client_id": "911359200170-cv9nctitc36melqh40a1higtchnbf909.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYvUhVrIV1oLjq4Wliztoz5HA-Roho0-4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "911359200170-cv9nctitc36melqh40a1higtchnbf909.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
