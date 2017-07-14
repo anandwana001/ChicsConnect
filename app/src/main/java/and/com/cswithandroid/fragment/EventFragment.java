@@ -105,31 +105,6 @@ public class EventFragment extends Fragment {
                         Intent intent = new Intent(getContext(), DetailEventActivity.class);
                         intent.putExtra("model", (Parcelable) model);
                         startActivity(intent);
-
-                      /*  final Dialog dialog = new Dialog(getContext());
-                        dialog.setContentView(R.layout.dialog_event);
-                        dialog.setTitle(model.getEvent_name());
-                        dialog.setCancelable(true); // dismiss when touching outside Dialog
-
-                        TextView event_fees_dialog = (TextView) dialog.findViewById(R.id.event_fees_dialog);
-                        event_fees_dialog.setText(model.getFees());
-
-                        TextView event_time_dialog = (TextView) dialog.findViewById(R.id.event_time_dialog);
-                        event_time_dialog.setText("Time - "+model.getTime());
-
-                        TextView event_date_dialog = (TextView) dialog.findViewById(R.id.event_date_dialog);
-                        event_date_dialog.setText("Date - "+model.getEvent_date());
-
-                        TextView event_place_dialog = (TextView) dialog.findViewById(R.id.event_place_dialog);
-                        event_place_dialog.setText(model.getAddress()+"\n"+model.getEvent_city()+"\n"+model.getEvent_state()+"\n"+model.getEvent_country());
-
-                        TextView event_des_dialog = (TextView) dialog.findViewById(R.id.event_des_dialog);
-                        event_des_dialog.setText(model.getEvent_des());
-
-                        ImageView event_image_dialog = (ImageView) dialog.findViewById(R.id.event_image_dialog);
-                        Glide.with(getContext()).load(model.getImage()).placeholder(R.drawable.chicsconnect).into(event_image_dialog);
-
-                        dialog.show();*/
                     }
                 });
             }
