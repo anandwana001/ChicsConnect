@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/user_events"
+        android:icon="@drawable/ic_user_profile"
+        android:title="@string/user_profile"
+        app:showAsAction="ifRoom"/>
+
+</menu>
