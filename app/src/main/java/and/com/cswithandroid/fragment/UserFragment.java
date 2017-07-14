@@ -1,5 +1,6 @@
 package and.com.cswithandroid.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,6 +8,9 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -14,6 +18,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import and.com.cswithandroid.ProfileActivity;
 import and.com.cswithandroid.R;
 import and.com.cswithandroid.adapter.UserProfileViewHolder;
 import and.com.cswithandroid.model.Users;
@@ -56,7 +61,7 @@ public class UserFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setHasOptionsMenu(true);
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference().child("Users");
     }
@@ -91,6 +96,22 @@ public class UserFragment extends Fragment {
 
         usersList.setAdapter(userProfileViewHolderFirebaseRecyclerAdapter);
         return rootView;
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.user_events,menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.user_events:
+                Intent user_profile_intent = new Intent(getContext(), ProfileActivity.class);
+                startActivity(user_profile_intent);
+                return false;
+        }
+        return false;
     }
 
     public void setRecyclerViewLayoutManager(LayoutManagerType layoutManagerType) {
