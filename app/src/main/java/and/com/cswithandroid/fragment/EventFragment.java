@@ -110,7 +110,6 @@ public class EventFragment extends Fragment {
             }
         };
         recyclerList.setAdapter(eventEventViewHolderFirebaseRecyclerAdapter);
-
         return rootView;
     }
 
@@ -154,7 +153,6 @@ public class EventFragment extends Fragment {
                 mLayoutManager = new LinearLayoutManager(getActivity());
                 mCurrentLayoutManagerType = LayoutManagerType.LINEAR_LAYOUT_MANAGER;
         }
-
         recyclerList.setLayoutManager(mLayoutManager);
         recyclerList.scrollToPosition(scrollPosition);
     }
