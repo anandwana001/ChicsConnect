@@ -86,11 +86,20 @@ public class UserFragment extends Fragment {
                 databaseReference
         ) {
             @Override
-            protected void populateViewHolder(UserProfileViewHolder viewHolder, Users model, int position) {
+            protected void populateViewHolder(UserProfileViewHolder viewHolder, final Users model, int position) {
 
                 viewHolder.setUserName(model.getUserName());
                 viewHolder.setUserBio(model.getUserBio());
                 viewHolder.setUserImage(getContext(), model.getUserImage());
+
+                viewHolder.Userview.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getContext(), ProfileActivity.class);
+                        intent.putExtra("model", model);
+                        startActivity(intent);
+                    }
+                });
             }
         };
 
@@ -100,7 +109,7 @@ public class UserFragment extends Fragment {
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        inflater.inflate(R.menu.user_events,menu);
+        inflater.inflate(R.menu.user_profile,menu);
     }
 
     @Override

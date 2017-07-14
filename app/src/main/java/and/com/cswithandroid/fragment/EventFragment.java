@@ -2,7 +2,6 @@ package and.com.cswithandroid.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -103,7 +102,7 @@ public class EventFragment extends Fragment {
                     public void onClick(View v) {
 
                         Intent intent = new Intent(getContext(), DetailEventActivity.class);
-                        intent.putExtra("model", (Parcelable) model);
+                        intent.putExtra("model", model);
                         startActivity(intent);
                     }
                 });

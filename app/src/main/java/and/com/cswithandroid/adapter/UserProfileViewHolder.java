@@ -16,7 +16,7 @@ import and.com.cswithandroid.R;
 
 public class UserProfileViewHolder extends RecyclerView.ViewHolder{
 
-    View Userview;
+    public View Userview;
 
     public UserProfileViewHolder(View itemView) {
         super(itemView);
