@@ -8,4 +8,10 @@
         android:title="@string/user_event"
         app:showAsAction="ifRoom"/>
 
+    <item
+        android:id="@+id/user_create_events"
+        android:icon="@drawable/ic_create_event"
+        android:title="@string/user_create_event"
+        app:showAsAction="ifRoom"/>
+
 </menu>

@@ -39,7 +39,8 @@
             android:theme="@style/MyMaterialTheme" />
         <activity
             android:name=".DetailEventActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".CreateEventActivity"></activity>
     </application>
 
 </manifest>

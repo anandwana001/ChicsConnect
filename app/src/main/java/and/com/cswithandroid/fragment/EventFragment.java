@@ -19,6 +19,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import and.com.cswithandroid.CreateEventActivity;
 import and.com.cswithandroid.DetailEventActivity;
 import and.com.cswithandroid.R;
 import and.com.cswithandroid.UserEventsActivity;
@@ -66,7 +67,6 @@ public class EventFragment extends Fragment {
         setHasOptionsMenu(true);
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference().child("Create Event");
-
     }
 
     @Override
@@ -122,10 +122,13 @@ public class EventFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-
             case R.id.user_events:
                 Intent user_event_intent = new Intent(getContext(), UserEventsActivity.class);
                 startActivity(user_event_intent);
+                return false;
+            case R.id.user_create_events:
+                Intent user_create_event_intent = new Intent(getContext(), CreateEventActivity.class);
+                startActivity(user_create_event_intent);
                 return false;
         }
         return false;
