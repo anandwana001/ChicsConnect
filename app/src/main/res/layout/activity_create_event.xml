@@ -91,7 +91,6 @@
                 android:padding="8dp"
                 android:layout_margin="4dp"
                 android:hint="@string/event_fees"
-                android:inputType="number"
                 android:background="@drawable/edit_box"/>
 
 

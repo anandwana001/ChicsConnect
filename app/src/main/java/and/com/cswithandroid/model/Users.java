@@ -13,25 +13,17 @@ public class Users implements Parcelable {
     private String UserImage;
     private String UserBio;
     private String emailid;
-
-    public Users() {
-    }
-
-    public Users(String userName, String userImage, String userBio, String emailid) {
-        this.UserName = userName;
-        this.UserImage = userImage;
-        this.UserBio = userBio;
-        this.emailid = emailid;
-    }
+    private String UserDesignation;
 
     protected Users(Parcel in) {
         UserName = in.readString();
         UserImage = in.readString();
         UserBio = in.readString();
         emailid = in.readString();
+        UserDesignation = in.readString();
     }
 
-    public static final Creator<Users> CREATOR = new Creator<Users>() {
+    public static final Parcelable.Creator<Users> CREATOR = new Parcelable.Creator<Users>() {
         @Override
         public Users createFromParcel(Parcel in) {
             return new Users(in);
@@ -43,20 +35,21 @@ public class Users implements Parcelable {
         }
     };
 
-    public void setUserName(String userName) {
-        this.UserName = userName;
+    @Override
+    public int describeContents() {
+        return 0;
     }
 
-    public void setUserImage(String userImage) {
-        this.UserImage = userImage;
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(UserName);
+        dest.writeString(UserImage);
+        dest.writeString(UserBio);
+        dest.writeString(emailid);
+        dest.writeString(UserDesignation);
     }
 
-    public void setUserBio(String userBio) {
-        this.UserBio = userBio;
-    }
-
-    public void setEmailid(String emailid) {
-        this.emailid = emailid;
+    public Users() {
     }
 
     public String getUserName() {
@@ -75,16 +68,31 @@ public class Users implements Parcelable {
         return this.emailid;
     }
 
-    @Override
-    public int describeContents() {
-        return 0;
+    public String getUserDesignation() {
+        return this.UserDesignation;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(UserName);
-        dest.writeString(UserImage);
-        dest.writeString(UserBio);
-        dest.writeString(emailid);
+    public static Parcelable.Creator<Users> getCREATOR() {
+        return Users.CREATOR;
+    }
+
+    public void setUserName(String userName) {
+        this.UserName = userName;
+    }
+
+    public void setUserImage(String userImage) {
+        this.UserImage = userImage;
+    }
+
+    public void setUserBio(String userBio) {
+        this.UserBio = userBio;
+    }
+
+    public void setEmailid(String emailid) {
+        this.emailid = emailid;
+    }
+
+    public void setUserDesignation(String userDesignation) {
+        this.UserDesignation = userDesignation;
     }
 }

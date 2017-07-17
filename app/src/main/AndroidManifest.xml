@@ -41,7 +41,7 @@
             android:name=".DetailEventActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CreateEventActivity" />
-        <activity android:name=".ProfileActivity"></activity>
+        <activity android:name=".ProfileActivity"/>
     </application>
 
 </manifest>

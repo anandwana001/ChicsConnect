@@ -1,5 +1,6 @@
 package and.com.cswithandroid;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -18,6 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 import and.com.cswithandroid.model.Users;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -45,23 +47,23 @@ public class ProfileActivity extends AppCompatActivity {
 
         sendMessage.setVisibility(View.GONE);
 
-        if(getIntent().getParcelableExtra("model")!=null) {
+        if (getIntent().getParcelableExtra("model") != null) {
             model = getIntent().getParcelableExtra("model");
             Glide.with(ProfileActivity.this).load(model.getUserImage()).into(userProfileImage);
             userProfileName.setText(model.getUserName());
             userProfileEmail.setText(model.getEmailid());
             userProfileBio.setText(model.getUserBio());
-            if(model.getEmailid()==FirebaseAuth.getInstance().getCurrentUser().getEmail())
+            if (model.getEmailid() == FirebaseAuth.getInstance().getCurrentUser().getEmail())
                 sendMessage.setVisibility(View.GONE);
             else
                 sendMessage.setVisibility(View.VISIBLE);
-        }else{
+        } else {
             databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
             databaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    Glide.with(ProfileActivity.this).load(dataSnapshot.child("UserImage").getValue().toString().replace("\\","")).into(userProfileImage);
+                    Glide.with(ProfileActivity.this).load(dataSnapshot.child("UserImage").getValue().toString().replace("\\", "")).into(userProfileImage);
                     userProfileName.setText(dataSnapshot.child("UserName").getValue().toString());
                     userProfileEmail.setText(dataSnapshot.child("emailid").getValue().toString());
                     userProfileBio.setText(dataSnapshot.child("UserBio").getValue().toString());
@@ -74,5 +76,11 @@ public class ProfileActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    @OnClick(R.id.send_message)
+    public void onViewClicked() {
+        Intent startPersonalChatIntent = new Intent(ProfileActivity.this, PersonalChatActivity.class);
+        startActivity(startPersonalChatIntent);
     }
 }
