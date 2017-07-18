@@ -121,6 +121,7 @@ public class SetupAccountActivity extends AppCompatActivity {
                     databaseReference.child(user_id).child("UserHomeCity").setValue(user_home_city);
                     databaseReference.child(user_id).child("UserHomeState").setValue(user_home_state);
                     databaseReference.child(user_id).child("UserHomeCountry").setValue(user_home_country);
+                    databaseReference.child(user_id).child("UserUid").setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
                     progressDialog.dismiss();
 

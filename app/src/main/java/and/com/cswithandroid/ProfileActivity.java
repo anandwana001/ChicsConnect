@@ -19,7 +19,6 @@ import com.google.firebase.database.ValueEventListener;
 import and.com.cswithandroid.model.Users;
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -76,11 +75,14 @@ public class ProfileActivity extends AppCompatActivity {
                 }
             });
         }
-    }
 
-    @OnClick(R.id.send_message)
-    public void onViewClicked() {
-        Intent startPersonalChatIntent = new Intent(ProfileActivity.this, PersonalChatActivity.class);
-        startActivity(startPersonalChatIntent);
+        sendMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent startPersonalChatIntent = new Intent(ProfileActivity.this, PersonalChatActivity.class);
+                startPersonalChatIntent.putExtra("reciever_uid",model.getUserUid());
+                startActivity(startPersonalChatIntent);
+            }
+        });
     }
 }

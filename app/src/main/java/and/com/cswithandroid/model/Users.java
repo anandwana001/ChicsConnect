@@ -14,6 +14,7 @@ public class Users implements Parcelable {
     private String UserBio;
     private String emailid;
     private String UserDesignation;
+    private String UserUid;
 
     protected Users(Parcel in) {
         UserName = in.readString();
@@ -21,6 +22,7 @@ public class Users implements Parcelable {
         UserBio = in.readString();
         emailid = in.readString();
         UserDesignation = in.readString();
+        UserUid = in.readString();
     }
 
     public static final Parcelable.Creator<Users> CREATOR = new Parcelable.Creator<Users>() {
@@ -47,6 +49,7 @@ public class Users implements Parcelable {
         dest.writeString(UserBio);
         dest.writeString(emailid);
         dest.writeString(UserDesignation);
+        dest.writeString(UserUid);
     }
 
     public Users() {
@@ -72,8 +75,8 @@ public class Users implements Parcelable {
         return this.UserDesignation;
     }
 
-    public static Parcelable.Creator<Users> getCREATOR() {
-        return Users.CREATOR;
+    public String getUserUid() {
+        return this.UserUid;
     }
 
     public void setUserName(String userName) {
@@ -94,5 +97,9 @@ public class Users implements Parcelable {
 
     public void setUserDesignation(String userDesignation) {
         this.UserDesignation = userDesignation;
+    }
+
+    public void setUserUid(String userUid) {
+        this.UserUid = userUid;
     }
 }

@@ -102,7 +102,6 @@ public class UserFragment extends Fragment {
                 });
             }
         };
-
         usersList.setAdapter(userProfileViewHolderFirebaseRecyclerAdapter);
         return rootView;
     }

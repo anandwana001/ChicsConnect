@@ -42,6 +42,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CreateEventActivity" />
         <activity android:name=".ProfileActivity"/>
+        <activity android:name=".PersonalChatActivity"/>
     </application>
 
 </manifest>
