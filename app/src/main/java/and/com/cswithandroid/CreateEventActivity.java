@@ -73,7 +73,7 @@ public class CreateEventActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         mStorageRef = FirebaseStorage.getInstance().getReference();
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Create Event");
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Create_event");
         categoriesDatabaseReference = FirebaseDatabase.getInstance().getReference();
 
         progressDialog = new ProgressDialog(this);

@@ -65,7 +65,7 @@ public class EventFragment extends Fragment {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference().child("Create Event");
+        databaseReference = firebaseDatabase.getReference().child("Create_event");
     }
 
     @Override

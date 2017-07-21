@@ -53,7 +53,7 @@ public class UserEventCreatedFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference().child("Create Event");
+        databaseReference = firebaseDatabase.getReference().child("Create_event");
     }
 
     @Nullable
