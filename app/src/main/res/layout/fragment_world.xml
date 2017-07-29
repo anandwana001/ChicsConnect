@@ -7,9 +7,17 @@
     android:orientation="vertical"
     tool:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="world activities"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/world_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:scrollbarStyle="outsideOverlay"
+        android:layout_margin="4dp"
+        android:divider="@color/list_divider"
+        android:dividerHeight="1dp"
+        android:listSelector="@drawable/list_row_selector" />
+
 
 </LinearLayout>

@@ -37,7 +37,6 @@ public class ProfileActivity extends AppCompatActivity {
     private Users model;
     private DatabaseReference databaseReference;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
