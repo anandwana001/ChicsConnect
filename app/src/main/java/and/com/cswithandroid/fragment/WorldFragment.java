@@ -1,5 +1,6 @@
 package and.com.cswithandroid.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -7,6 +8,9 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -14,6 +18,7 @@ import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import and.com.cswithandroid.CreateWorldPost;
 import and.com.cswithandroid.R;
 import and.com.cswithandroid.adapter.WorldViewHolder;
 import and.com.cswithandroid.model.World;
@@ -73,7 +78,7 @@ public class WorldFragment extends Fragment {
 
         FirebaseRecyclerAdapter<World, WorldViewHolder> eventEventViewHolderFirebaseRecyclerAdapter = new FirebaseRecyclerAdapter<World, WorldViewHolder>(
                 World.class,
-                R.layout.content_event,
+                R.layout.content_world_post,
                 WorldViewHolder.class,
                 databaseReference
         ) {
@@ -81,8 +86,8 @@ public class WorldFragment extends Fragment {
             protected void populateViewHolder(WorldViewHolder viewHolder, final World model, final int position) {
                 viewHolder.setUserName(model.getUsername());
                 viewHolder.setCaption(model.getCaption());
-                viewHolder.setPostImage(getContext(),model.getPhotourl());
-                viewHolder.setTimestamp(model.getTimeStamp());
+                viewHolder.setPostImage(getContext(),model.getImage());
+              //  viewHolder.setTimestamp(model.getTimeStamp());
                 viewHolder.setProfilePic(getContext(), model.getUserpic());
             }
         };
@@ -112,6 +117,22 @@ public class WorldFragment extends Fragment {
         }
         worldList.setLayoutManager(mLayoutManager);
         worldList.scrollToPosition(scrollPosition);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.user_world,menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.user_create_events:
+                Intent user_create_world_post_intent = new Intent(getContext(), CreateWorldPost.class);
+                startActivity(user_create_world_post_intent);
+                return false;
+        }
+        return false;
     }
 
     @Override

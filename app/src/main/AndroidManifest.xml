@@ -23,7 +23,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".LoginActivity" />
-        <activity android:name=".SetupAccountActivity" />
+        <activity android:name=".SetupAccountActivity"
+            android:label="Create Profile"/>
         <activity android:name=".MainActivity" />
 
         <meta-data
@@ -41,8 +42,8 @@
             android:name=".DetailEventActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".CreateEventActivity" />
-        <activity android:name=".ProfileActivity"/>
-        <activity android:name=".PersonalChatActivity"/>
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".CreateWorldPost"></activity>
     </application>
 
 </manifest>

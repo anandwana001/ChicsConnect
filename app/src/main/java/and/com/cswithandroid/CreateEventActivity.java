@@ -72,7 +72,7 @@ public class CreateEventActivity extends AppCompatActivity {
         setContentView(R.layout.activity_create_event);
         ButterKnife.bind(this);
 
-        mStorageRef = FirebaseStorage.getInstance().getReference();
+        mStorageRef = FirebaseStorage.getInstance().getReference().child("Create_event");
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Create_event");
         categoriesDatabaseReference = FirebaseDatabase.getInstance().getReference();
 
@@ -134,14 +134,14 @@ public class CreateEventActivity extends AppCompatActivity {
                 && !TextUtils.isEmpty(event_date) && !TextUtils.isEmpty(event_time)
                 && !TextUtils.isEmpty(event_type) && mImageUri != null && !TextUtils.isEmpty(event_city) && !TextUtils.isEmpty(event_state) && !TextUtils.isEmpty(event_country)) {
 
-            StorageReference filePath = mStorageRef.child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child(mImageUri.getLastPathSegment());
+            StorageReference filePath = mStorageRef.child(event_country).child(event_state).child(event_city).child(FirebaseAuth.getInstance().getCurrentUser().getDisplayName()).child(mImageUri.getLastPathSegment());
             filePath.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
                     Uri downloadUrl = taskSnapshot.getDownloadUrl();
 
-                    DatabaseReference databaseReference1 = databaseReference.push();
+                    DatabaseReference databaseReference1 = databaseReference.child(event_country).child(event_state).child(event_city).push();
 
                     databaseReference1.child("uid").setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
                     databaseReference1.child("event_name").setValue(event_name);
@@ -155,6 +155,7 @@ public class CreateEventActivity extends AppCompatActivity {
                     databaseReference1.child("event_city").setValue(event_city);
                     databaseReference1.child("event_state").setValue(event_state);
                     databaseReference1.child("event_country").setValue(event_country);
+                    databaseReference1.child("creater_name").setValue(FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
 
                     progressDialog.dismiss();
                 }

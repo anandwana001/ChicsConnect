@@ -2,7 +2,9 @@ package and.com.cswithandroid;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -122,7 +124,12 @@ public class LoginActivity extends AppCompatActivity implements GoogleApiClient.
 
             final String user_id = mFirebaseAuth.getCurrentUser().getUid();
 
-            databaseReference.addValueEventListener(new ValueEventListener() {
+            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+            String country = sharedPreferences.getString("country","India");
+            String state = sharedPreferences.getString("state","Rajasthan");
+            String city = sharedPreferences.getString("city","Udaipur");
+
+            databaseReference.child(country).child(state).child(city).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
 

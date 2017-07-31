@@ -61,5 +61,15 @@
             android:layout_height="0.5dp"
             android:background="@color/colorAccent"
             android:id="@+id/view" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/user_post_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:scrollbarStyle="outsideOverlay"
+            android:layout_margin="4dp"
+            android:divider="@color/list_divider"
+            android:dividerHeight="1dp"
+            android:listSelector="@drawable/list_row_selector" />
     </LinearLayout>
 </ScrollView>

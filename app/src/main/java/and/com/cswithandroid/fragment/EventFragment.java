@@ -1,7 +1,9 @@
 package and.com.cswithandroid.fragment;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -64,8 +66,12 @@ public class EventFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setHasOptionsMenu(true);
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        String country = sharedPreferences.getString("country","India");
+        String state = sharedPreferences.getString("state","Rajasthan");
+        String city = sharedPreferences.getString("city","Udaipur");
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference().child("Create_event");
+        databaseReference = firebaseDatabase.getReference().child("Create_event").child(country).child(state).child(city);
     }
 
     @Override

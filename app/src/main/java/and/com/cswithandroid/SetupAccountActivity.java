@@ -2,8 +2,10 @@ package and.com.cswithandroid;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
@@ -60,6 +62,8 @@ public class SetupAccountActivity extends AppCompatActivity {
 
     private ProgressDialog progressDialog;
 
+    private SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +74,7 @@ public class SetupAccountActivity extends AppCompatActivity {
         databaseReference = FirebaseDatabase.getInstance().getReference().child("Users");
         mStorageRef = FirebaseStorage.getInstance().getReference().child("Profile_images");
 
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         progressDialog = new ProgressDialog(this);
 
         userName.setText(mFirebaseAuth.getCurrentUser().getDisplayName());
@@ -106,22 +111,28 @@ public class SetupAccountActivity extends AppCompatActivity {
             progressDialog.setMessage("Finishing Setup");
             progressDialog.show();
 
-            StorageReference filePath = mStorageRef.child(mFirebaseAuth.getCurrentUser().getDisplayName());
+            StorageReference filePath = mStorageRef.child(user_home_country).child(user_home_state).child(user_home_city).child(mFirebaseAuth.getCurrentUser().getDisplayName());
             filePath.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
                     String downloadUrl = taskSnapshot.getDownloadUrl().toString();
 
-                    databaseReference.child(user_id).child("UserName").setValue(mFirebaseAuth.getCurrentUser().getDisplayName());
-                    databaseReference.child(user_id).child("emailid").setValue(mFirebaseAuth.getCurrentUser().getEmail());
-                    databaseReference.child(user_id).child("UserImage").setValue(downloadUrl.toString());
-                    databaseReference.child(user_id).child("UserBio").setValue(user_bio);
-                    databaseReference.child(user_id).child("UserPhoneNumber").setValue(user_phone_number);
-                    databaseReference.child(user_id).child("UserHomeCity").setValue(user_home_city);
-                    databaseReference.child(user_id).child("UserHomeState").setValue(user_home_state);
-                    databaseReference.child(user_id).child("UserHomeCountry").setValue(user_home_country);
-                    databaseReference.child(user_id).child("UserUid").setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                    databaseReference.child(user_home_country).child(user_home_state).child(user_home_city).child(user_id).child("UserName").setValue(mFirebaseAuth.getCurrentUser().getDisplayName());
+                    databaseReference.child(user_home_country).child(user_home_state).child(user_home_city).child(user_id).child("emailid").setValue(mFirebaseAuth.getCurrentUser().getEmail());
+                    databaseReference.child(user_home_country).child(user_home_state).child(user_home_city).child(user_id).child("UserImage").setValue(downloadUrl.toString());
+                    databaseReference.child(user_home_country).child(user_home_state).child(user_home_city).child(user_id).child("UserBio").setValue(user_bio);
+                    databaseReference.child(user_home_country).child(user_home_state).child(user_home_city).child(user_id).child("UserPhoneNumber").setValue(user_phone_number);
+                    databaseReference.child(user_home_country).child(user_home_state).child(user_home_city).child(user_id).child("UserHomeCity").setValue(user_home_city);
+                    databaseReference.child(user_home_country).child(user_home_state).child(user_home_city).child(user_id).child("UserHomeState").setValue(user_home_state);
+                    databaseReference.child(user_home_country).child(user_home_state).child(user_home_city).child(user_id).child("UserHomeCountry").setValue(user_home_country);
+                    databaseReference.child(user_home_country).child(user_home_state).child(user_home_city).child(user_id).child("UserUid").setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
+
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putString("country", user_home_country);
+                    editor.putString("state", user_home_state);
+                    editor.putString("city", user_home_city);
+                    editor.apply();
 
                     progressDialog.dismiss();
 

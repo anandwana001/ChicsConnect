@@ -39,6 +39,8 @@ public class DetailEventActivity extends AppCompatActivity {
     Button eventJoinDialog;
     @BindView(R.id.event_chat_dialog)
     Button eventChatDialog;
+    @BindView(R.id.event_creater_name)
+    TextView eventCreaterName;
 
     private Event event;
 
@@ -64,8 +66,9 @@ public class DetailEventActivity extends AppCompatActivity {
         Glide.with(this).load(event.getImage()).into(eventImageDialog);
         toolbarLayout.setTitle(event.getEvent_name());
         eventFeesDialog.setText(event.getFees());
-        eventPlace.setText(event.getAddress()+", "+event.getEvent_city()+",\n"+event.getEvent_state()+", "+event.getEvent_country());
-        eventTime.setText(event.getTime()+", "+event.getEvent_date());
+        eventPlace.setText(event.getAddress() + ", " + event.getEvent_city() + ",\n" + event.getEvent_state() + ", " + event.getEvent_country());
+        eventTime.setText(event.getTime() + ", " + event.getEvent_date());
         eventDesDialog.setText(event.getEvent_des());
+        eventCreaterName.setText(event.getCreater_name());
     }
 }

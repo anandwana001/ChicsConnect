@@ -15,30 +15,48 @@ public class Event implements Parcelable {
     private String image;
     private String fees;
     private String event_date;
-    private String time;
+    private String event_time;
     private String address;
     private String event_city;
     private String event_state;
     private String event_country;
     private String uid;
+    private String creater_name;
 
     public Event() {
     }
 
     public Event(String event_name, String event_des, String event_type, String image, String fees, String event_date,
-                 String time, String address, String event_city, String event_state, String event_country, String uid) {
+                 String event_time, String address, String event_city, String event_state, String event_country, String uid, String creater_name) {
         this.event_name = event_name;
         this.event_des = event_des;
         this.event_type = event_type;
         this.image = image;
         this.fees = fees;
         this.event_date = event_date;
-        this.time = time;
+        this.event_time = event_time;
         this.address = address;
         this.event_city = event_city;
         this.event_state = event_state;
         this.event_country = event_country;
         this.uid = uid;
+        this.creater_name = creater_name;
+    }
+
+    public void setEvent_time(String event_time) {
+        this.event_time = event_time;
+    }
+
+    public void setCreater_name(String creater_name) {
+        this.creater_name = creater_name;
+    }
+
+    public String getEvent_time() {
+        return event_time;
+    }
+
+    public String getCreater_name() {
+        return creater_name;
     }
 
     public void setEvent_date(String event_date) {
@@ -46,7 +64,7 @@ public class Event implements Parcelable {
     }
 
     public void setTime(String time) {
-        this.time = time;
+        this.event_time = time;
     }
 
     public String getEvent_date() {
@@ -54,7 +72,7 @@ public class Event implements Parcelable {
     }
 
     public String getTime() {
-        return this.time;
+        return this.event_time;
     }
 
     public void setEvent_name(String event_name) {
@@ -150,12 +168,13 @@ public class Event implements Parcelable {
         dest.writeString(this.image);
         dest.writeString(this.fees);
         dest.writeString(this.event_date);
-        dest.writeString(this.time);
+        dest.writeString(this.event_time);
         dest.writeString(this.address);
         dest.writeString(this.event_city);
         dest.writeString(this.event_state);
         dest.writeString(this.event_country);
         dest.writeString(this.uid);
+        dest.writeString(this.creater_name);
     }
 
     protected Event(Parcel in) {
@@ -165,12 +184,13 @@ public class Event implements Parcelable {
         this.image = in.readString();
         this.fees = in.readString();
         this.event_date = in.readString();
-        this.time = in.readString();
+        this.event_time = in.readString();
         this.address = in.readString();
         this.event_city = in.readString();
         this.event_state = in.readString();
         this.event_country = in.readString();
         this.uid = in.readString();
+        this.creater_name = in.readString();
     }
 
     public static final Parcelable.Creator<Event> CREATOR = new Parcelable.Creator<Event>() {

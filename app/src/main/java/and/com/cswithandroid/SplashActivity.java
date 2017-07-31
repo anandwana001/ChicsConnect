@@ -1,7 +1,9 @@
 package and.com.cswithandroid;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
@@ -79,7 +81,13 @@ public class SplashActivity extends AppCompatActivity {
 
         if (mFirebaseAuth.getCurrentUser() != null) {
             final String user_id = mFirebaseAuth.getCurrentUser().getUid();
-            userDatabaseReference.addValueEventListener(new ValueEventListener() {
+
+            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+            String country = sharedPreferences.getString("country","India");
+            String state = sharedPreferences.getString("state","Rajasthan");
+            String city = sharedPreferences.getString("city","Udaipur");
+
+            userDatabaseReference.child(country).child(state).child(city).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
 

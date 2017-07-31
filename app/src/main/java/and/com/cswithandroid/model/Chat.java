@@ -6,41 +6,22 @@ package and.com.cswithandroid.model;
 
 public class Chat {
 
-    private String text;
-    private String name;
-    private String reciever;
-
+    public String sender;
+    public String receiver;
+    public String senderUid;
+    public String receiverUid;
+    public String message;
+    public long timestamp;
 
     public Chat() {
     }
 
-    public Chat(String text, String name, String reciever) {
-        this.text = text;
-        this.name = name;
-        this.reciever = reciever;
-    }
-
-    public void setText(String text) {
-        this.text = text;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setReciever(String reciever) {
-        this.reciever = reciever;
-    }
-
-    public String getText() {
-        return text;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getReciever() {
-        return reciever;
+    public Chat(String sender, String receiver, String senderUid, String receiverUid, String message, long timestamp) {
+        this.sender = sender;
+        this.receiver = receiver;
+        this.senderUid = senderUid;
+        this.receiverUid = receiverUid;
+        this.message = message;
+        this.timestamp = timestamp;
     }
 }

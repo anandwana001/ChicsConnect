@@ -8,19 +8,21 @@ public class World {
 
     private String Username;
     private String Userpic;
-    private String Caption;
-    private String Photourl;
+    private String caption;
+    private String image;
     private String TimeStamp;
+    private String uid;
 
     public World() {
     }
 
-    public World(String username, String userpic, String caption, String photourl, String timeStamp) {
+    public World(String username, String userpic, String caption, String image, String timeStamp, String uid) {
         Username = username;
         Userpic = userpic;
-        Caption = caption;
-        Photourl = photourl;
+        this.caption = caption;
+        this.image = image;
         TimeStamp = timeStamp;
+        this.uid = uid;
     }
 
     public void setUsername(String username) {
@@ -32,15 +34,19 @@ public class World {
     }
 
     public void setCaption(String caption) {
-        Caption = caption;
+        this.caption = caption;
     }
 
-    public void setPhotourl(String photourl) {
-        Photourl = photourl;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public void setTimeStamp(String timeStamp) {
         TimeStamp = timeStamp;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 
     public String getUsername() {
@@ -52,14 +58,18 @@ public class World {
     }
 
     public String getCaption() {
-        return Caption;
+        return caption;
     }
 
-    public String getPhotourl() {
-        return Photourl;
+    public String getImage() {
+        return image;
     }
 
     public String getTimeStamp() {
         return TimeStamp;
+    }
+
+    public String getUid() {
+        return uid;
     }
 }

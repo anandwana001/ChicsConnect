@@ -47,5 +47,4 @@ public class EventViewHolder extends RecyclerView.ViewHolder{
         Glide.with(cOntext).load(image).into(event_type);
     }
 
-
 }

@@ -1,45 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/chat_recyclerView"
+    <FrameLayout
+        android:id="@+id/frame_layout_content_chat"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:clipToPadding="false"
-        android:scrollbarStyle="outsideOverlay"
-        android:divider="@color/list_divider"
-        android:dividerHeight="1dp"
-        android:listSelector="@drawable/list_row_selector" />
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="bottom"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/type_message"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColorHint="@android:color/white"
-            android:textColor="@android:color/white"
-            android:hint="Type your message"
-            android:padding="9dp"
-            android:background="@drawable/send_message_area_bg"/>
-
-        <ImageView
-            android:id="@+id/send_message"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:padding="4dp"
-            android:src="@android:drawable/ic_menu_send"
-            android:background="@drawable/rounded_corner"/>
-    </LinearLayout>
 </LinearLayout>
