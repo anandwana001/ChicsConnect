@@ -126,7 +126,7 @@ public class ProfileActivity extends AppCompatActivity {
                 World.class,
                 R.layout.content_world_post,
                 WorldViewHolder.class,
-                databaseReferenceWorldPost.orderByChild("uid").equalTo(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                databaseReferenceWorldPost.orderByChild("uid").equalTo(model.getUserUid())
         ) {
             @Override
             protected void populateViewHolder(WorldViewHolder viewHolder, final World model, final int position) {
