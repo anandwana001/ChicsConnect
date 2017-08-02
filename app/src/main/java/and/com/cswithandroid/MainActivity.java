@@ -12,6 +12,7 @@ import and.com.cswithandroid.fragment.EventFragment;
 import and.com.cswithandroid.fragment.MapFragment;
 import and.com.cswithandroid.fragment.UserFragment;
 import and.com.cswithandroid.fragment.WorldFragment;
+import and.com.cswithandroid.util.BottomNavigationViewHelper;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
                     selectedFragment = WorldFragment.newInstance();
                     break;
             }
+            BottomNavigationViewHelper.disableShiftMode(navigation);
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.content, selectedFragment);
             transaction.commit();
@@ -53,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-
+        BottomNavigationViewHelper.disableShiftMode(navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         int check = getIntent().getIntExtra("check",R.id.navigation_home);
