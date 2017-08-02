@@ -10,13 +10,13 @@ public class World {
     private String Userpic;
     private String caption;
     private String image;
-    private String TimeStamp;
+    private Long TimeStamp;
     private String uid;
 
     public World() {
     }
 
-    public World(String username, String userpic, String caption, String image, String timeStamp, String uid) {
+    public World(String username, String userpic, String caption, String image, Long timeStamp, String uid) {
         Username = username;
         Userpic = userpic;
         this.caption = caption;
@@ -41,7 +41,7 @@ public class World {
         this.image = image;
     }
 
-    public void setTimeStamp(String timeStamp) {
+    public void setTimeStamp(Long timeStamp) {
         TimeStamp = timeStamp;
     }
 
@@ -65,7 +65,7 @@ public class World {
         return image;
     }
 
-    public String getTimeStamp() {
+    public Long getTimeStamp() {
         return TimeStamp;
     }
 

@@ -40,4 +40,7 @@
     <string name="event_date">Event Date</string>
 
     <string name="user_profile">Profile</string>
+
+    <string name="write_caption">Write Caption</string>
+    <string name="post">Post</string>
 </resources>

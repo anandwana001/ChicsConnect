@@ -19,6 +19,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -113,6 +114,7 @@ public class CreateWorldPost extends AppCompatActivity {
                     databaseReference1.child("image").setValue(downloadUrl.toString());
                     databaseReference1.child("uid").setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
                     databaseReference1.child("Username").setValue(FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
+                    databaseReference1.child("TimeStamp").setValue(ServerValue.TIMESTAMP);
                     databaseReferenceProfilePic.child(country).child(state).child(city).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {

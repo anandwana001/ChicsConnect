@@ -86,7 +86,7 @@ public class WorldFragment extends Fragment {
                 viewHolder.setUserName(model.getUsername());
                 viewHolder.setCaption(model.getCaption());
                 viewHolder.setPostImage(getContext(), model.getImage());
-                //  viewHolder.setTimestamp(model.getTimeStamp());
+                viewHolder.setTimestamp(model.getTimeStamp());
                 viewHolder.setProfilePic(getContext(), model.getUserpic());
             }
         };

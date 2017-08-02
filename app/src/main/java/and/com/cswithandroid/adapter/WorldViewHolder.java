@@ -8,6 +8,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import and.com.cswithandroid.R;
 
 /**
@@ -22,7 +25,6 @@ public class WorldViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
         this.view = itemView;
     }
-
     public void setUserName(String userName){
         TextView  username = (TextView) view.findViewById(R.id.user_world_name);
         username.setText(userName);
@@ -39,9 +41,9 @@ public class WorldViewHolder extends RecyclerView.ViewHolder {
         ImageView user_world_post_image = (ImageView) view.findViewById(R.id.user_world_post_image);
         Glide.with(context).load(postImage).into(user_world_post_image);
     }
-    public void setTimestamp(String timestamp){
+    public void setTimestamp(Long timestamp){
         TextView  userTimestamp = (TextView) view.findViewById(R.id.user_world_timestamp);
-        userTimestamp.setText(timestamp);
+        SimpleDateFormat sfd = new SimpleDateFormat("HH:mm MMMM dd, yyyy");
+        userTimestamp.setText(sfd.format(new Date(timestamp)));
     }
-
 }
