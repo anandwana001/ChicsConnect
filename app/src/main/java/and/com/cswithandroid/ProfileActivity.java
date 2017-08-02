@@ -19,6 +19,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import and.com.cswithandroid.adapter.WorldViewHolder;
@@ -45,6 +46,7 @@ public class ProfileActivity extends AppCompatActivity {
 
     private Users model;
     private DatabaseReference databaseReference;
+    private Query query;
 
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference databaseReferenceWorldPost;
@@ -94,8 +96,10 @@ public class ProfileActivity extends AppCompatActivity {
                 sendMessage.setVisibility(View.GONE);
             else
                 sendMessage.setVisibility(View.VISIBLE);
+            query =  databaseReferenceWorldPost.orderByChild("uid").equalTo(model.getUserUid());
         } else {
             databaseReference = FirebaseDatabase.getInstance().getReference().child("Users").child(country).child(state).child(city).child(FirebaseAuth.getInstance().getCurrentUser().getUid());
+            query = databaseReferenceWorldPost.orderByChild("uid").equalTo(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
             databaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -126,7 +130,7 @@ public class ProfileActivity extends AppCompatActivity {
                 World.class,
                 R.layout.content_world_post,
                 WorldViewHolder.class,
-                databaseReferenceWorldPost.orderByChild("uid").equalTo(model.getUserUid())
+                query
         ) {
             @Override
             protected void populateViewHolder(WorldViewHolder viewHolder, final World model, final int position) {
