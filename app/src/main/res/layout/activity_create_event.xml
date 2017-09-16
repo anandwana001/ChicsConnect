@@ -1,136 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:fillViewport="true"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    android:background="@color/white">
 
-    <android.support.v7.widget.CardView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="4dp">
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="@dimen/activity_horizontal_margin">
 
-        <LinearLayout
+        <ImageView
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:id="@+id/create_event_imageView"
+            app:srcCompat="@drawable/imagehere"
+            android:layout_gravity="center"
+            android:background="@drawable/edit_box" />
+
+        <EditText
+            android:id="@+id/create_event_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="@dimen/activity_horizontal_margin">
+            android:inputType="textCapSentences"
+            android:ellipsize="end"
+            android:lines="1"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:layout_marginTop="@dimen/eightdp"
+            android:textSize="@dimen/twelevesp"
+            android:hint="@string/event_name"
+            android:background="@drawable/edit_box" />
 
-            <ImageView
-                android:id="@+id/create_event_imageView"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:src="@drawable/imagehere"
-                android:layout_gravity="center"
-                android:padding="8dp"
-                android:layout_margin="4dp"
-                android:background="@drawable/edit_box"/>
+        <EditText
+            android:id="@+id/create_event_des"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences"
+            android:ellipsize="end"
+            android:lines="3"
+            android:maxLines="3"
+            android:padding="8dp"
+            android:layout_marginTop="@dimen/eightdp"
+            android:textSize="@dimen/twelevesp"
+            android:hint="@string/event_des"
+            android:background="@drawable/edit_box" />
 
-            <EditText
-                android:id="@+id/create_event_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:layout_margin="4dp"
-                android:hint="@string/event_name"
-                android:background="@drawable/edit_box"/>
+        <EditText
+            android:id="@+id/create_event_location"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences"
+            android:ellipsize="end"
+            android:lines="1"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:layout_marginTop="@dimen/eightdp"
+            android:textSize="@dimen/twelevesp"
+            android:hint="@string/event_add"
+            android:background="@drawable/edit_box" />
 
-            <EditText
-                android:id="@+id/create_event_des"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp"
-                android:layout_margin="4dp"
-                android:hint="@string/event_des"
-                android:background="@drawable/edit_box"/>
+        <EditText
+            android:id="@+id/create_event_fees"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textCapSentences"
+            android:ellipsize="end"
+            android:lines="1"
+            android:maxLines="1"
+            android:padding="8dp"
+            android:hint="@string/event_fees"
+            android:layout_marginTop="@dimen/eightdp"
+            android:textSize="@dimen/twelevesp"
+            android:background="@drawable/edit_box" />
 
-            <EditText
-                android:id="@+id/create_event_location"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:layout_margin="4dp"
-                android:hint="@string/event_add"
-                android:background="@drawable/edit_box"/>
+        <EditText
+            android:id="@+id/create_event_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:hint="@string/event_date"
+            android:layout_marginTop="@dimen/eightdp"
+            android:textSize="@dimen/twelevesp"
+            android:background="@drawable/edit_box" />
 
-            <EditText
-                android:id="@+id/create_event_city"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:layout_margin="4dp"
-                android:hint="Event City"
-                android:inputType="textCapSentences"
-                android:background="@drawable/edit_box"/>
+        <EditText
+            android:id="@+id/create_event_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:hint="@string/event_start_time"
+            android:layout_marginTop="@dimen/eightdp"
+            android:textSize="@dimen/twelevesp"
+            android:background="@drawable/edit_box" />
 
-            <EditText
-                android:id="@+id/create_event_state"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:layout_margin="4dp"
-                android:hint="Event State"
-                android:inputType="textCapSentences"
-                android:background="@drawable/edit_box"/>
+        <EditText
+            android:id="@+id/create_event_endtime"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:hint="@string/event_end_time"
+            android:layout_marginTop="@dimen/eightdp"
+            android:textSize="@dimen/twelevesp"
+            android:background="@drawable/edit_box" />
 
-            <EditText
-                android:id="@+id/create_event_country"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:layout_margin="4dp"
-                android:hint="Event Country"
-                android:inputType="textCapSentences"
-                android:background="@drawable/edit_box" />
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/create_event_country"
+            android:layout_margin="4dp"
+            android:padding="8dp" />
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/create_event_state"
+            android:layout_margin="4dp"
+            android:padding="8dp" />
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/create_event_city"
+            android:layout_margin="4dp"
+            android:padding="8dp" />
 
-            <EditText
-                android:id="@+id/create_event_fees"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:layout_margin="4dp"
-                android:hint="@string/event_fees"
-                android:background="@drawable/edit_box"/>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/spinner"
+            android:layout_margin="4dp"
+            android:padding="8dp" />
 
+        <Button
+            android:id="@+id/create_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/finish_button_bg"
+            android:textColor="@android:color/white"
+            android:padding="8dp"
+            android:layout_marginTop="@dimen/eightdp"
+            android:text="@string/user_create_event"/>
 
-            <EditText
-                android:id="@+id/create_event_date"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:layout_margin="4dp"
-                android:ems="10"
-                android:inputType="date"
-                android:hint="Event Date"
-                android:background="@drawable/edit_box"/>
-
-            <EditText
-                android:id="@+id/create_event_time"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:layout_margin="4dp"
-                android:ems="10"
-                android:hint="@string/event_time"
-                android:background="@drawable/edit_box"/>
-
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/spinner"
-                android:layout_margin="4dp"
-                android:padding="8dp" />
-
-            <Button
-                android:id="@+id/create_button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/colorPrimaryDark"
-                android:textColor="@android:color/white"
-                android:padding="8dp"
-                android:layout_margin="4dp"
-                android:text="@string/user_create_event"/>
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
+    </LinearLayout>
 </ScrollView>

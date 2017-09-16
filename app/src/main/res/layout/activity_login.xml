@@ -3,15 +3,37 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:background="@android:color/white">
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/login_welcome_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/sixteendp"
+        android:text="@string/login_welcome_message"
+        android:textSize="@dimen/twentysp"
+        android:textColor="@color/colorAccent"/>
+
+    <TextView
+        android:id="@+id/login_about_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/login_about_message"
+        android:layout_margin="@dimen/eightdp"
+        android:gravity="center"
+        android:textSize="@dimen/sixteensp"
+        android:textColor="@color/colorAccent"/>
 
     <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:src="@drawable/chicsconnect"
-        android:padding="@dimen/activity_horizontal_margin"/>
-    <com.google.android.gms.common.SignInButton android:layout_height="40dp"
+        android:layout_width="@dimen/login_logo"
+        android:layout_height="@dimen/login_logo"
+        android:src="@drawable/logo"
+        android:layout_marginTop="@dimen/eightdp"/>
+
+    <com.google.android.gms.common.SignInButton
+        android:layout_height="@dimen/login_btn_hieight"
         android:layout_width="wrap_content"
-        android:id="@+id/sign_in_button" />
+        android:id="@+id/sign_in_button"
+        android:background="@color/colorPrimaryDark" />
 
 </LinearLayout>

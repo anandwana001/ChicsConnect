@@ -3,12 +3,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/user_events"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/user_event"
-        app:showAsAction="ifRoom"/>
-
-    <item
         android:id="@+id/user_create_events"
         android:icon="@drawable/ic_create_event"
         android:title="@string/user_create_event"

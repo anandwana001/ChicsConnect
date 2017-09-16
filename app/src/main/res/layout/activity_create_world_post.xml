@@ -1,38 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-        <EditText
-            android:id="@+id/user_world_caption_edit"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:ellipsize="end"
-            android:lines="3"
-            android:maxLines="3"
-            android:padding="8dp"
-            android:layout_margin="4dp"
-            android:textSize="14sp"
-            android:hint="@string/write_caption"
-            android:background="@drawable/edit_box"/>
-        <ImageView
-            android:id="@+id/user_world_post_image_edit"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            app:srcCompat="@drawable/imagehere"
-            android:layout_gravity="center"
-            android:padding="8dp"
-            android:layout_margin="4dp"
-            android:background="@drawable/edit_box"/>
-        <Button
-            android:id="@+id/create_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/finish_button_bg"
-            android:textColor="@android:color/white"
-            android:layout_margin="4dp"
-            android:text="@string/post"/>
+    <EditText
+        android:id="@+id/user_world_caption_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/eightdp"
+        android:ellipsize="end"
+        android:lines="3"
+        android:maxLines="3"
+        android:padding="@dimen/eightdp"
+        android:layout_margin="@dimen/fourdp"
+        android:textSize="@dimen/fourteensp"
+        android:hint="@string/write_caption"
+        android:background="@drawable/edit_box"/>
 
-</LinearLayout>
+    <ImageView
+        android:id="@+id/user_world_post_image_edit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/login_logo"
+        app:srcCompat="@drawable/imagehere"
+        android:layout_gravity="center"
+        android:padding="8dp"
+        android:layout_margin="@dimen/fourdp"
+        android:background="@drawable/edit_box"
+        android:layout_below="@+id/user_world_caption_edit" />
+
+    <Button
+        android:id="@+id/create_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/finish_button_bg"
+        android:text="@string/post"
+        android:textColor="@android:color/white" />
+
+</RelativeLayout>

@@ -7,4 +7,21 @@
     <dimen name="text_margin">16dp</dimen>
     <dimen name="user_icon_width">36dp</dimen>
     <dimen name="user_icon_height">36dp</dimen>
+
+    <dimen name="login_logo">200dp</dimen>
+    <dimen name="login_btn_hieight">50dp</dimen>
+
+    <dimen name="splash_icon">100dp</dimen>
+
+    <dimen name="fourdp">4dp</dimen>
+    <dimen name="eightdp">8dp</dimen>
+    <dimen name="sixteendp">16dp</dimen>
+    <dimen name="twentydp">20dp</dimen>
+
+    <dimen name="eightsp">8sp</dimen>
+    <dimen name="twelevesp">12sp</dimen>
+    <dimen name="fourteensp">14sp</dimen>
+    <dimen name="sixteensp">16sp</dimen>
+    <dimen name="eighteensp">18sp</dimen>
+    <dimen name="twentysp">20sp</dimen>
 </resources>
