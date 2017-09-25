@@ -1,35 +1,50 @@
 {
   "project_info": {
-    "project_number": "911359200170",
-    "firebase_url": "https://chicsconnect-4a561.firebaseio.com",
-    "project_id": "chicsconnect-4a561",
-    "storage_bucket": "chicsconnect-4a561.appspot.com"
+    "project_number": "1093652328834",
+    "firebase_url": "https://lunar-tube-179319.firebaseio.com",
+    "project_id": "lunar-tube-179319",
+    "storage_bucket": "lunar-tube-179319.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:911359200170:android:76232ce1f0d247f1",
+        "mobilesdk_app_id": "1:1093652328834:android:87400da67b10b595",
         "android_client_info": {
-          "package_name": "and.com.cswithandroid"
+          "package_name": "and.com.chicsconnect"
         }
       },
       "oauth_client": [
         {
-          "client_id": "911359200170-tcbm621pls13q0c68toj99gt8mt9rp5g.apps.googleusercontent.com",
+          "client_id": "1093652328834-phde4gmd8f1uqsqf8sh0sibmuftn0vh2.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "and.com.cswithandroid",
-            "certificate_hash": "ccd249569b01c94f47f91792c603521d22365320"
+            "package_name": "and.com.chicsconnect",
+            "certificate_hash": "d7282e9c1d25f4a5e6e2b8b428ede36b3f1dd4d6"
           }
         },
         {
-          "client_id": "911359200170-cv9nctitc36melqh40a1higtchnbf909.apps.googleusercontent.com",
+          "client_id": "1093652328834-mr28fj6dpjqjjb4vkrahv668f97614nv.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAYvUhVrIV1oLjq4Wliztoz5HA-Roho0-4"
+          "current_key": "AIzaSyCCkPvd0IXNhHyULausjYmHJCnJ6lDxoZk"
+        },
+        {
+          "current_key": "AIzaSyC1HmCAbe6zIZ85citrIwZdrvltgCCwoDI"
+        },
+        {
+          "current_key": "AIzaSyBp-3C1YWwpBaacVAJiJsllKE3LquVHMJc"
+        },
+        {
+          "current_key": "AIzaSyDABbsQNHZ6-EEP-BB7VST9-7J8iBpCZDA"
+        },
+        {
+          "current_key": "AIzaSyBvVvfpD1slnAHIORKf27ASMQhV-SxTJjg"
+        },
+        {
+          "current_key": "AIzaSyBRgOgZcwzOM6Q-7hv_2EUhUzNw12IywhQ"
         }
       ],
       "services": {
@@ -40,7 +55,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "911359200170-cv9nctitc36melqh40a1higtchnbf909.apps.googleusercontent.com",
+              "client_id": "1093652328834-mr28fj6dpjqjjb4vkrahv668f97614nv.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -22,7 +22,7 @@
 
     <item
         android:id="@+id/navigation_world"
-        android:icon="@drawable/ic_home_black_24dp"
+        android:icon="@drawable/ic_whatshot_black_24dp"
         android:title="@string/title_world"
         app:showAsAction="ifRoom"/>
 </menu>

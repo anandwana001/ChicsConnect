@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="and.com.cswithandroid.DetailEventActivity"
+    tools:context="com.chicsconnect.DetailEventActivity"
     tools:showIn="@layout/activity_detail_event">
 
     <LinearLayout
@@ -16,6 +16,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -35,6 +36,7 @@
             tool:text="@string/large_text" />
 
         <TextView
+            android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -54,6 +56,7 @@
             tool:text="FREE" />
 
         <TextView
+            android:id="@+id/textView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -73,6 +76,7 @@
             android:textSize="16sp" />
 
         <TextView
+            android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -92,6 +96,7 @@
             android:textSize="16sp" />
 
         <TextView
+            android:id="@+id/textView5"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
@@ -109,36 +114,6 @@
             android:padding="4dp"
             android:textSize="16sp"
             tool:text="@string/large_text" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="4dp"
-            android:layout_marginTop="4dp"
-            android:orientation="horizontal"
-            android:weightSum="2">
-
-            <Button
-                android:id="@+id/event_join_dialog"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@color/colorAccent"
-                android:text="@string/join_event"
-                android:textColor="@android:color/white"
-                android:textSize="16sp" />
-
-            <Button
-                android:id="@+id/event_chat_dialog"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_marginStart="4dp"
-                android:layout_weight="1"
-                android:background="@color/colorAccent"
-                android:text="@string/chat_event"
-                android:textColor="@android:color/white"
-                android:textSize="16sp" />
-        </LinearLayout>
 
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>

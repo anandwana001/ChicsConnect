@@ -26,3 +26,6 @@
 -keepclassmembers class android.support.design.internal.BottomNavigationMenuView {
     boolean mShiftingMode;
 }
+
+-keep class and.com.chicsconnect.adapter.** { *; }
+-keep class and.com.chicsconnect.model.** { *; }
