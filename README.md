@@ -8,17 +8,17 @@ In conferences and official meetings we hardly get to build that bond and connec
 #### [Play Store](https://play.google.com/store/apps/details?id=and.com.chicsconnect)
 
 #### Screenshot
-![Screenshot](https://raw.github.com/anandwana001/ChicsConnect/Screenshots/logo.png)
+![Screenshot](https://raw.github.com/anandwana001/ChicsConnect/blob/master/Screenshots/logo.png)
 
-![Screenshot](https://raw.github.com/anandwana001/ChicsConnect/Screenshots/FirstScreen.png)
+![Screenshot](https://raw.github.com/anandwana001/ChicsConnect/blob/master/Screenshots/FirstScreen.png)
 
-![Screenshot](https://raw.github.com/anandwana001/ChicsConnect/Screenshots/Screenshot_2017-10-05-05-48-15-242_and.com.chicsconnect)
+![Screenshot](https://raw.github.com/anandwana001/ChicsConnect/blob/master/Screenshots/Screenshot_2017-10-05-05-48-15-242_and.com.chicsconnect)
 
-![Screenshot](https://raw.github.com/anandwana001/ChicsConnect/Screenshots/Screenshot_2017-09-23-18-32-47-877_com.chicsconnect.png)
+![Screenshot](https://raw.github.com/anandwana001/ChicsConnect/blob/master/Screenshots/Screenshot_2017-09-23-18-32-47-877_com.chicsconnect.png)
 
-![Screenshot](https://raw.github.com/anandwana001/ChicsConnect/Screenshots/Screenshot_2017-09-23-18-32-42-107_com.chicsconnect.png)
+![Screenshot](https://raw.github.com/anandwana001/ChicsConnect/blob/master/Screenshots/Screenshot_2017-09-23-18-32-42-107_com.chicsconnect.png)
 
-![Screenshot](https://raw.github.com/anandwana001/ChicsConnect/Screenshots/Screenshot_2017-09-23-18-32-57-234_com.chicsconnect.png)
+![Screenshot](https://raw.github.com/anandwana001/ChicsConnect/blob/master/Screenshots/Screenshot_2017-09-23-18-32-57-234_com.chicsconnect.png)
 
-![Screenshot](https://raw.github.com/anandwana001/ChicsConnect/Screenshots/Screenshot_2017-09-23-18-33-02-705_com.chicsconnect)
+![Screenshot](https://raw.github.com/anandwana001/ChicsConnect/blob/master/Screenshots/Screenshot_2017-09-23-18-33-02-705_com.chicsconnect)
 
