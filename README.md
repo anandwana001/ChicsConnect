@@ -8,7 +8,7 @@ In conferences and official meetings we hardly get to build that bond and connec
 #### [Play Store](https://play.google.com/store/apps/details?id=and.com.chicsconnect)
 
 #### Screenshot
-![Settings Window](https://raw.github.com/anandwana001/ChicsConnect/master/Screenshots/logo.png)
+![Settings Window](https://raw.github.com/anandwana001/ChicsConnect/master/Screenshots/logo.png =250x250 | width=48)
 
 ![Settings Window](https://raw.github.com/anandwana001/ChicsConnect/master/Screenshots/FirstScreen.png)
 
