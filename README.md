@@ -7,18 +7,17 @@ In conferences and official meetings we hardly get to build that bond and connec
 
 #### [Play Store](https://play.google.com/store/apps/details?id=and.com.chicsconnect)
 
-#### Screenshot
-![Settings Window](https://raw.github.com/anandwana001/ChicsConnect/master/Screenshots/logo.png =250x250)
 
-![Settings Window](https://raw.github.com/anandwana001/ChicsConnect/master/Screenshots/FirstScreen.png)
+### Screenshots of a sample Android app
 
-![Settings Window](https://raw.github.com/anandwana001/ChicsConnect/master/Screenshots/Screenshot_2017-10-05-05-48-15-242_and.com.chicsconnect.png)
+<p align="center">
+<img src="Screenshots/logo.png" height = "270" width="270"> 
+</p>
 
-![Settings Window](https://raw.github.com/anandwana001/ChicsConnect/master/Screenshots/Screenshot_2017-09-23-18-32-47-877_com.chicsconnect.png)
+<p align="center">
+<img src="Screenshots/FirstScreen.png" height = "480" width="270"> <img src="Screenshots/Screenshot_2017-10-05-05-48-15-242_and.com.chicsconnect.png" height = "480" width="270"> <img src="Screenshots/Screenshot_2017-09-23-18-32-47-877_com.chicsconnect.png" height = "480" width="270">
+</p>
 
-![Settings Window](https://raw.github.com/anandwana001/ChicsConnect/master/Screenshots/Screenshot_2017-09-23-18-32-42-107_com.chicsconnect.png)
-
-![Settings Window](https://raw.github.com/anandwana001/ChicsConnect/master/Screenshots/Screenshot_2017-09-23-18-32-57-234_com.chicsconnect.png)
-
-![Settings Window](https://raw.github.com/anandwana001/ChicsConnect/master/Screenshots/Screenshot_2017-09-23-18-33-02-705_com.chicsconnect.png)
-
+<p align="center">
+<img src="Screenshots/Screenshot_2017-09-23-18-32-42-107_com.chicsconnect.png" height = "480" width="270"> <img src="Screenshots/Screenshot_2017-09-23-18-32-57-234_com.chicsconnect.png" height = "480" width="270"> <img src="Screenshots/Screenshot_2017-09-23-18-33-02-705_com.chicsconnect.png" height = "480" width="270">
+</p>
