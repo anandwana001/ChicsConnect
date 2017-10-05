@@ -8,17 +8,17 @@ In conferences and official meetings we hardly get to build that bond and connec
 #### [Play Store](https://play.google.com/store/apps/details?id=and.com.chicsconnect)
 
 #### Screenshot
-![Settings Window](https://raw.github.com/anandwana001/ChicsConnect/blob/master/Screenshots/logo.png)
+![Settings Window](https://raw.github.com/anandwana001/ChicsConnect/master/Screenshots/logo.png)
 
-![Settings Window](https://raw.github.com/anandwana001/ChicsConnect/blob/master/Screenshots/FirstScreen.png)
+![Settings Window](https://raw.github.com/anandwana001/ChicsConnect/master/Screenshots/FirstScreen.png)
 
-![Settings Window](https://raw.github.com/anandwana001/ChicsConnect/blob/master/Screenshots/Screenshot_2017-10-05-05-48-15-242_and.com.chicsconnect)
+![Settings Window](https://raw.github.com/anandwana001/ChicsConnect/master/Screenshots/Screenshot_2017-10-05-05-48-15-242_and.com.chicsconnect.png)
 
-![Settings Window](https://raw.github.com/anandwana001/ChicsConnect/blob/master/Screenshots/Screenshot_2017-09-23-18-32-47-877_com.chicsconnect.png)
+![Settings Window](https://raw.github.com/anandwana001/ChicsConnect/master/Screenshots/Screenshot_2017-09-23-18-32-47-877_com.chicsconnect.png)
 
-![Settings Window](https://raw.github.com/anandwana001/ChicsConnect/blob/master/Screenshots/Screenshot_2017-09-23-18-32-42-107_com.chicsconnect.png)
+![Settings Window](https://raw.github.com/anandwana001/ChicsConnect/master/Screenshots/Screenshot_2017-09-23-18-32-42-107_com.chicsconnect.png)
 
-![Settings Window](https://raw.github.com/anandwana001/ChicsConnect/blob/master/Screenshots/Screenshot_2017-09-23-18-32-57-234_com.chicsconnect.png)
+![Settings Window](https://raw.github.com/anandwana001/ChicsConnect/master/Screenshots/Screenshot_2017-09-23-18-32-57-234_com.chicsconnect.png)
 
-![Settings Window](https://raw.github.com/anandwana001/ChicsConnect/blob/master/Screenshots/Screenshot_2017-09-23-18-33-02-705_com.chicsconnect)
+![Settings Window](https://raw.github.com/anandwana001/ChicsConnect/master/Screenshots/Screenshot_2017-09-23-18-33-02-705_com.chicsconnect.png)
 
