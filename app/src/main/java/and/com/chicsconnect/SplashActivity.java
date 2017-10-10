@@ -2,13 +2,12 @@ package and.com.chicsconnect;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -23,7 +22,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 /**
  * Created by dell on 29-06-2017.
@@ -39,16 +37,10 @@ public class SplashActivity extends AppCompatActivity {
     ImageView event;
     @BindView(R.id.world)
     ImageView world;
-    @BindView(R.id.textView2)
-    TextView textView2;
-    @BindView(R.id.textView4)
-    TextView textView4;
-    @BindView(R.id.textView)
-    TextView textView;
-    @BindView(R.id.textView3)
-    TextView textView3;
-    @BindView(R.id.textView5)
-    TextView textView5;
+    @BindView(R.id.city)
+    ImageView city;
+    @BindView(R.id.deal)
+    ImageView deal;
 
     private FirebaseAuth mFirebaseAuth;
     private FirebaseUser mFirebaseUser;
@@ -71,7 +63,7 @@ public class SplashActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(FirebaseAuth firebaseAuth) {
                 if (mFirebaseUser == null) {
-                    Intent loginIntent = new Intent(SplashActivity.this, and.com.chicsconnect.LoginActivity.class);
+                    Intent loginIntent = new Intent(SplashActivity.this, LoginActivity.class);
                     loginIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(loginIntent);
                     finish();
@@ -87,6 +79,46 @@ public class SplashActivity extends AppCompatActivity {
                 .build();
 
         checkUserExist();
+
+        map.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                intent.putExtra("check", R.id.navigation_home);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        world.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                intent.putExtra("check", R.id.navigation_world);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        user.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                intent.putExtra("check", R.id.navigation_notifications);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        event.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                intent.putExtra("check", R.id.navigation_dashboard);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 
     private void checkUserExist() {
@@ -104,7 +136,7 @@ public class SplashActivity extends AppCompatActivity {
                 public void onDataChange(DataSnapshot dataSnapshot) {
 
                     if (!dataSnapshot.hasChild(user_id)) {
-                        Intent setupAccountIntent = new Intent(SplashActivity.this, and.com.chicsconnect.SetupAccountActivity.class);
+                        Intent setupAccountIntent = new Intent(SplashActivity.this, SetupAccountActivity.class);
                         setupAccountIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(setupAccountIntent);
                         finish();
@@ -122,11 +154,6 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        textView2.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "OpenSans-Light.ttf"));
-        textView3.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "OpenSans-Light.ttf"));
-        textView4.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "OpenSans-Light.ttf"));
-        textView5.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "OpenSans-Regular.ttf"));
-        textView.setTypeface(Typeface.createFromAsset(getResources().getAssets(), "OpenSans-Light.ttf"));
     }
 
     @Override
@@ -143,37 +170,5 @@ public class SplashActivity extends AppCompatActivity {
         }
         googleApiClient.disconnect();
         super.onStop();
-    }
-
-    @OnClick(R.id.map)
-    public void onViewClickedMap() {
-        Intent intent = new Intent(this, and.com.chicsconnect.MainActivity.class);
-        intent.putExtra("check", R.id.navigation_home);
-        startActivity(intent);
-        finish();
-    }
-
-    @OnClick(R.id.user)
-    public void onViewClickedUser() {
-        Intent intent = new Intent(this, and.com.chicsconnect.MainActivity.class);
-        intent.putExtra("check", R.id.navigation_notifications);
-        startActivity(intent);
-        finish();
-    }
-
-    @OnClick(R.id.event)
-    public void onViewClickedEvent() {
-        Intent intent = new Intent(this, and.com.chicsconnect.MainActivity.class);
-        intent.putExtra("check", R.id.navigation_dashboard);
-        startActivity(intent);
-        finish();
-    }
-
-    @OnClick(R.id.world)
-    public void onViewClickedWorld() {
-        Intent intent = new Intent(this, and.com.chicsconnect.MainActivity.class);
-        intent.putExtra("check", R.id.navigation_world);
-        startActivity(intent);
-        finish();
     }
 }

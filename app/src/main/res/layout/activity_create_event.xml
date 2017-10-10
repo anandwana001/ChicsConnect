@@ -110,26 +110,33 @@
             android:layout_height="wrap_content"
             android:id="@+id/create_event_country"
             android:layout_margin="4dp"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:spinnerMode="dialog"
+            android:prompt="@string/country"/>
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/create_event_state"
             android:layout_margin="4dp"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:spinnerMode="dialog"
+            android:prompt="@string/state"/>
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/create_event_city"
             android:layout_margin="4dp"
-            android:padding="8dp" />
-
+            android:padding="8dp"
+            android:spinnerMode="dialog"
+            android:prompt="@string/city"/>
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/spinner"
             android:layout_margin="4dp"
-            android:padding="8dp" />
+            android:padding="8dp"
+            android:spinnerMode="dialog"
+            android:prompt="@string/category"/>
 
         <Button
             android:id="@+id/create_button"

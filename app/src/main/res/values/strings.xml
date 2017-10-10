@@ -23,6 +23,11 @@
     <string name="home_country">home country</string>
     <string name="finishSetup">Create Profile</string>
 
+    <string name="country">Select Country</string>
+    <string name="state">Select State</string>
+    <string name="city">Select City</string>
+    <string name="category">Select Category</string>
+
     <string name="start">start</string>
 
     <string name="user_event">Your Activities</string>

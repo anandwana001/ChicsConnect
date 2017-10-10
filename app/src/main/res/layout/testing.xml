@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/thumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:scaleType="centerCrop"
+                tool:src="@mipmap/ic_launcher" />
+
+            <TextView
+                android:id="@+id/event_fees"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:layout_marginTop="8dp"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:layout_alignParentEnd="true"
+                tool:text="FREE"/>
+
+        </RelativeLayout>
+        <TextView
+            android:id="@+id/event_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:layout_marginStart="4dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            tool:text="Techno India NJR Institute of Technology" />
+
+        <TextView
+            android:id="@+id/event_city"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:layout_marginStart="4dp"
+            android:textSize="14sp"
+            tool:text="NAAC Grade - A" />
+
+        <TextView
+            android:id="@+id/event_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="4dp"
+            android:layout_marginStart="4dp"
+            android:textSize="14sp"
+            tool:text="Department\nComputer Science\nCivil\nMechanical" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/colorAccent"
+            android:id="@+id/view" />
+
+        <TextView
+            android:id="@+id/event_type"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:maxLines="1"
+            android:padding="4dp"
+            android:layout_marginStart="4dp"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            tool:text="Faculty - Engineering" />
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>

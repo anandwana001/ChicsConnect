@@ -1,21 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <color name="colorPrimary">#F05271</color>
     <color name="colorPrimaryDark">#E15170</color>
     <color name="colorAccent">#9B9B9B</color>
 
-    <color name="cyan">#00ACC1</color>
     <color name="white">#fff</color>
-
-    <!-- Dark Text Color for Light Background -->
-    <color name="textDarkPrimary">#000000</color> <!--DE for %87 opacity-->
-    <color name="textDarkSecondary">#000000</color> <!--8A for %54 opacity-->
-    <color name="textDarkDisabled">#61000000</color> <!--61 for %38 opacity-->
-
-    <!-- White Text Color for Dark Background -->
-    <color name="textLightPrimary">#000000</color> <!--%100 opacity-->
-    <color name="textLightSecondary">#000000</color> <!--B2 for %70 opacity-->
-    <color name="textLightDisabled">#61000000</color> <!--4C for %30 opacity-->
 
     <color name="list_row_start_color">#ffffff</color>
     <color name="list_row_end_color">#ffffff</color>
@@ -23,4 +12,9 @@
     <color name="list_row_hover_end_color">#ebeef0</color>
 
     <color name="list_divider">#d9d9d9</color>
+
+    <color name="background">#DFDFDF</color>
+
+    <color name="view_divider_color">#BABABA</color>
+    <color name="view_divider_color_2">#DADADA</color>
 </resources>

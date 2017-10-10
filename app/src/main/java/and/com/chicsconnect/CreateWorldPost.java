@@ -1,20 +1,25 @@
 package and.com.chicsconnect;
 
+import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.ClipData;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.preference.PreferenceManager;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -29,17 +34,29 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import and.com.chicsconnect.adapter.ImageAdapter;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class CreateWorldPost extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback{
+public class CreateWorldPost extends AppCompatActivity implements ActivityCompat.OnRequestPermissionsResultCallback {
 
     @BindView(R.id.user_world_caption_edit)
     EditText userWorldCaptionEdit;
     @BindView(R.id.user_world_post_image_edit)
-    ImageView userWorldPostImageEdit;
+    FloatingActionButton userWorldPostImageEdit;
     @BindView(R.id.create_button)
     Button createButton;
+
+    @BindView(R.id.user_post_list)
+    RecyclerView recyclerView;
+    private List<Uri> mArrayUri;
+    private ImageAdapter mAdapter;
+    private Parcelable mListState;
+    private LinearLayoutManager mLayoutManager;
+    private String LIST_STATE_KEY = "list_state";
 
     private static final int PICK_IMAGE_REQUEST = 1;
 
@@ -65,6 +82,12 @@ public class CreateWorldPost extends AppCompatActivity implements ActivityCompat
         progressDialog = new ProgressDialog(this);
         progressDialog.setCancelable(false);
 
+        mArrayUri = new ArrayList<Uri>();
+        mAdapter = new ImageAdapter(mArrayUri, CreateWorldPost.this);
+        mLayoutManager = new LinearLayoutManager(CreateWorldPost.this, LinearLayoutManager.HORIZONTAL, false);
+        recyclerView.setLayoutManager(mLayoutManager);
+        recyclerView.setAdapter(mAdapter);
+
         userWorldPostImageEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -89,16 +112,18 @@ public class CreateWorldPost extends AppCompatActivity implements ActivityCompat
 
     private void requestPermission() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            requestPermissions(new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE , android.Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_PERMISSION);
+            requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_WRITE_PERMISSION);
         } else {
             showFileChooser();
         }
     }
 
     private void showFileChooser() {
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
+        Intent intent = new Intent();
         intent.setType("image/*");
-        this.startActivityForResult(intent, PICK_IMAGE_REQUEST);
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
     }
 
     @Override
@@ -106,8 +131,33 @@ public class CreateWorldPost extends AppCompatActivity implements ActivityCompat
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == this.RESULT_OK) {
-            mImageUri = data.getData();
-            userWorldPostImageEdit.setImageURI(mImageUri);
+
+            if (data.getData() != null) {
+
+                Uri mImageUri = data.getData();
+                userWorldPostImageEdit.setImageURI(mImageUri);
+
+                mArrayUri.add(mImageUri);
+                mAdapter = new ImageAdapter(mArrayUri,this);
+                recyclerView.setAdapter(mAdapter);
+            } else {
+                if (data.getClipData() != null) {
+                    ClipData mClipData = data.getClipData();
+                    for (int i = 0; i < mClipData.getItemCount(); i++) {
+
+                        if(i>5){
+                            Toast.makeText(CreateWorldPost.this, "More than 5 images not allow !!", Toast.LENGTH_LONG).show();
+                            break;
+                        }
+                        ClipData.Item item = mClipData.getItemAt(i);
+                        Uri uri = item.getUri();
+                        mArrayUri.add(uri);
+                    }
+                    mAdapter = new ImageAdapter(mArrayUri,this);
+                    recyclerView.setAdapter(mAdapter);
+                }
+
+            }
         }
     }
 
@@ -119,43 +169,70 @@ public class CreateWorldPost extends AppCompatActivity implements ActivityCompat
         final String state = sharedPreferences.getString("state", "Rajasthan");
         final String city = sharedPreferences.getString("city", "Udaipur");
 
-        if (!TextUtils.isEmpty(world_post_caption) && mImageUri != null) {
+        if (!TextUtils.isEmpty(world_post_caption) && mArrayUri != null) {
 
             progressDialog.setMessage("Posting");
             progressDialog.show();
 
-            StorageReference filePath = mStorageRef.child(country).child(state).child(city).
-                    child(FirebaseAuth.getInstance().getCurrentUser().getDisplayName()).child(mImageUri.getLastPathSegment());
-            filePath.putFile(mImageUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+            final DatabaseReference[] databaseReference1 = {databaseReference.push()};
 
-                    Uri downloadUrl = taskSnapshot.getDownloadUrl();
+            for(int i = 0; i<mArrayUri.size(); i++){
 
-                    final DatabaseReference databaseReference1 = databaseReference.push();
-                    databaseReference1.child("caption").setValue(world_post_caption);
-                    databaseReference1.child("image").setValue(downloadUrl.toString());
-                    databaseReference1.child("uid").setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
-                    databaseReference1.child("Username").setValue(FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
-                    databaseReference1.child("TimeStamp").setValue(ServerValue.TIMESTAMP);
-                    databaseReferenceProfilePic.child(country).child(state).child(city).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(DataSnapshot dataSnapshot) {
-                            databaseReference1.child("Userpic").setValue(dataSnapshot.child("UserImage").getValue().toString());
-                        }
+                StorageReference filePath = mStorageRef.child(country).child(state).child(city).
+                        child(FirebaseAuth.getInstance().getCurrentUser().getDisplayName()).child(mArrayUri.get(i).getLastPathSegment());
+                final int finalI = i;
+                filePath.putFile(mArrayUri.get(i)).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
 
-                        @Override
-                        public void onCancelled(DatabaseError databaseError) {
+                        Uri downloadUrl = taskSnapshot.getDownloadUrl();
 
-                        }
-                    });
-                    progressDialog.dismiss();
-                    Toast.makeText(CreateWorldPost.this,"Successfully posted!!", Toast.LENGTH_LONG).show();
-                    finish();
-                }
-            });
-        }else{
-            Toast.makeText(CreateWorldPost.this,"All the fields are required!!", Toast.LENGTH_LONG).show();
+                        databaseReference1[0] = databaseReference.push();
+                        databaseReference1[0].child("image"+ finalI).setValue(downloadUrl);
+                        databaseReference1[0].child("caption").setValue(world_post_caption);
+                        databaseReference1[0].child("uid").setValue(FirebaseAuth.getInstance().getCurrentUser().getUid());
+                        databaseReference1[0].child("Username").setValue(FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
+                        databaseReference1[0].child("TimeStamp").setValue(ServerValue.TIMESTAMP);
+                        databaseReferenceProfilePic.child(country).child(state).child(city).child(FirebaseAuth.getInstance().getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                databaseReference1[0].child("Userpic").setValue(dataSnapshot.child("UserImage").getValue().toString());
+                                if(finalI==mArrayUri.size()-1){
+                                    progressDialog.dismiss();
+                                    Toast.makeText(CreateWorldPost.this, "Successfully posted!!", Toast.LENGTH_LONG).show();
+                                    finish();
+                                }
+                            }
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+                            }
+                        });
+                    }
+                });
+            }
+        } else {
+            Toast.makeText(CreateWorldPost.this, "All the fields are required!!", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        mListState = mLayoutManager.onSaveInstanceState();
+        outState.putParcelable(LIST_STATE_KEY, mListState);
+    }
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        if(savedInstanceState != null) {
+            mListState = savedInstanceState.getParcelable(LIST_STATE_KEY);
+        }
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (mListState != null) {
+            mLayoutManager.onRestoreInstanceState(mListState);
         }
     }
 }

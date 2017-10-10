@@ -120,7 +120,6 @@ public class CreateEventActivity extends AppCompatActivity implements ActivityCo
         createEventDate.setText("Select Activity Date");
         createEventTime.setText("Select Activity Starting Time");
         createEventEndtime.setText("Select Activity Ending Time");
-        spinner.setPrompt("Select Categor");
 
         createEventTime.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,7 +162,6 @@ public class CreateEventActivity extends AppCompatActivity implements ActivityCo
             @Override
             public void onDateSet(DatePicker view, int year, int monthOfYear,
                                   int dayOfMonth) {
-                // TODO Auto-generated method stub
                 myCalendar.set(Calendar.YEAR, year);
                 myCalendar.set(Calendar.MONTH, monthOfYear);
                 myCalendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
@@ -174,7 +172,6 @@ public class CreateEventActivity extends AppCompatActivity implements ActivityCo
         createEventDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO Auto-generated method stub
                 new DatePickerDialog(CreateEventActivity.this, date, myCalendar
                         .get(Calendar.YEAR), myCalendar.get(Calendar.MONTH),
                         myCalendar.get(Calendar.DAY_OF_MONTH)).show();
@@ -209,6 +206,7 @@ public class CreateEventActivity extends AppCompatActivity implements ActivityCo
                 ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(CreateEventActivity.this, android.R.layout.simple_spinner_item, country);
                 arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 createEventCountry.setAdapter(arrayAdapter);
+                createEventCountry.setPrompt(getResources().getString(R.string.country));
             }
 
             @Override
@@ -234,6 +232,7 @@ public class CreateEventActivity extends AppCompatActivity implements ActivityCo
                         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(CreateEventActivity.this, android.R.layout.simple_spinner_item, state);
                         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         createEventState.setAdapter(arrayAdapter);
+                        createEventState.setPrompt(getResources().getString(R.string.state));
                     }
 
                     @Override
@@ -267,6 +266,8 @@ public class CreateEventActivity extends AppCompatActivity implements ActivityCo
                         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(CreateEventActivity.this, android.R.layout.simple_spinner_item, city);
                         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                         createEventCity.setAdapter(arrayAdapter);
+
+                        createEventCity.setPrompt(getResources().getString(R.string.city));
                     }
 
                     @Override
@@ -295,6 +296,8 @@ public class CreateEventActivity extends AppCompatActivity implements ActivityCo
                 ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(CreateEventActivity.this, android.R.layout.simple_spinner_item, categories);
                 arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 spinner.setAdapter(arrayAdapter);
+
+                spinner.setPrompt(getResources().getString(R.string.category));
             }
 
             @Override

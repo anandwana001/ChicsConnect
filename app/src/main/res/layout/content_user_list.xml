@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="8dp">
+    android:layout_marginTop="@dimen/eightdp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,22 +17,23 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             tool:src="@mipmap/ic_launcher"
-            app:civ_border_width="1dp" />
+            app:civ_border_width="1dp"
+            android:layout_margin="@dimen/fourdp"/>
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/eightdp">
 
             <TextView
                 android:id="@+id/user_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:ellipsize="end"
                 android:lines="1"
                 android:maxLines="1"
-                android:padding="4dp"
-                android:textSize="16sp"
+                android:padding="@dimen/fourdp"
+                android:textSize="@dimen/sixteensp"
                 android:textStyle="bold"
                 tool:text="Akshay Nandwana" />
 
@@ -41,12 +42,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/user_name"
-                android:layout_marginStart="8dp"
-                android:paddingStart="4dp"
+                android:paddingStart="@dimen/fourdp"
                 android:ellipsize="end"
                 android:lines="1"
                 android:maxLines="1"
-                android:textSize="14sp"
+                android:textSize="@dimen/fourteensp"
                 tool:text="Developer: Android Developer Nanodegree. Less Human, More Being. Storyteller. Explorer Local Guide. Android Facilitator." />
 
         </RelativeLayout>

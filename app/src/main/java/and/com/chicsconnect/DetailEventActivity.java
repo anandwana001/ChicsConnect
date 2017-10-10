@@ -3,6 +3,7 @@ package and.com.chicsconnect;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.graphics.Palette;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,6 +19,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
 
 import and.com.chicsconnect.model.Event;
 import butterknife.BindView;
@@ -57,7 +61,8 @@ public class DetailEventActivity extends AppCompatActivity {
     private Event event;
 
     private static final int PERMISSIONS_REQUEST_PHONE_CALL = 100;
-    private static String[] PERMISSIONS_PHONECALL = {Manifest.permission.CALL_PHONE};
+
+    private int mMutedColor = 0xFF333333;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +83,20 @@ public class DetailEventActivity extends AppCompatActivity {
         eventCreaterName.setText(event.getCreater_name());
 
         Glide.with(this).load(event.getImage()).into(eventImageDialog);
+
+        Glide.with(this)
+                .load(event.getImage())
+                .asBitmap()
+                .into(new SimpleTarget<Bitmap>(100,100) {
+                    @Override
+                    public void onResourceReady(Bitmap resource, GlideAnimation glideAnimation) {
+                        if (resource != null) {
+                            Palette p = Palette.generate(resource, 12);
+                            mMutedColor = p.getDarkMutedColor(0xFF333333);
+                            toolbarLayout.setContentScrimColor(mMutedColor);
+                            toolbarLayout.setStatusBarScrimColor(mMutedColor);
+                        }
+                    }});
 
         callCreator.setOnClickListener(new View.OnClickListener() {
             @Override

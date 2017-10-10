@@ -1,13 +1,17 @@
 package and.com.chicsconnect.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Typeface;
+import android.support.v7.graphics.Palette;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
 
 import and.com.chicsconnect.R;
 
@@ -18,6 +22,7 @@ import and.com.chicsconnect.R;
 public class EventViewHolder extends RecyclerView.ViewHolder{
 
     public View view;
+    private int mMutedColor = 0xFF333333;
 
     public EventViewHolder(View itemView) {
         super(itemView);
@@ -50,6 +55,21 @@ public class EventViewHolder extends RecyclerView.ViewHolder{
     }
     public void setImage(Context cOntext, String image){
         ImageView event_type = (ImageView) view.findViewById(R.id.thumbnail);
+        final TextView event_fees = (TextView) view.findViewById(R.id.event_fees);
+
+        Glide.with(cOntext)
+                .load(image)
+                .asBitmap()
+                .into(new SimpleTarget<Bitmap>(100,100) {
+                    @Override
+                    public void onResourceReady(Bitmap resource, GlideAnimation glideAnimation) {
+                        if (resource != null) {
+                            Palette p = Palette.generate(resource, 12);
+                            mMutedColor = p.getDarkMutedColor(0xFF333333);
+                            event_fees.setBackgroundColor(mMutedColor);
+                        }
+                    }});
+
         Glide.with(cOntext).load(image).into(event_type);
     }
 
